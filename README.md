@@ -1,57 +1,42 @@
-song-recommendation-system
-==============================
+# 🎵 Song Recommendation System
 
-Hybrid Recommendation system for song
+A hybrid music recommendation engine combining **Content-Based Filtering** and **Collaborative Filtering**, with end‑to‑end data versioning, preprocessing, model training, and a Streamlit web UI.
 
-Project Organization
-------------
+---
 
-    ├── LICENSE
-    ├── Makefile           <- Makefile with commands like `make data` or `make train`
-    ├── README.md          <- The top-level README for developers using this project.
-    ├── data
-    │   ├── external       <- Data from third party sources.
-    │   ├── interim        <- Intermediate data that has been transformed.
-    │   ├── processed      <- The final, canonical data sets for modeling.
-    │   └── raw            <- The original, immutable data dump.
-    │
-    ├── docs               <- A default Sphinx project; see sphinx-doc.org for details
-    │
-    ├── models             <- Trained and serialized models, model predictions, or model summaries
-    │
-    ├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
-    │                         the creator's initials, and a short `-` delimited description, e.g.
-    │                         `1.0-jqp-initial-data-exploration`.
-    │
-    ├── references         <- Data dictionaries, manuals, and all other explanatory materials.
-    │
-    ├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
-    │   └── figures        <- Generated graphics and figures to be used in reporting
-    │
-    ├── requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.
-    │                         generated with `pip freeze > requirements.txt`
-    │
-    ├── setup.py           <- makes project pip installable (pip install -e .) so src can be imported
-    ├── src                <- Source code for use in this project.
-    │   ├── __init__.py    <- Makes src a Python module
-    │   │
-    │   ├── data           <- Scripts to download or generate data
-    │   │   └── make_dataset.py
-    │   │
-    │   ├── features       <- Scripts to turn raw data into features for modeling
-    │   │   └── build_features.py
-    │   │
-    │   ├── models         <- Scripts to train models and then use trained models to make
-    │   │   │                 predictions
-    │   │   ├── predict_model.py
-    │   │   └── train_model.py
-    │   │
-    │   └── visualization  <- Scripts to create exploratory and results oriented visualizations
-    │       └── visualize.py
-    │
-    └── tox.ini            <- tox file with settings for running tox; see tox.readthedocs.io
+## 🔍 Features
+
+- **Content-Based Filtering** (`content_based_filtering.py`):  
+  - TF‑IDF vectorization of song metadata (genre, artist, lyrics)  
+  - Cosine similarity search  
+
+- **Collaborative Filtering** (`collaborative_filtering.py`):  
+  - User–item interaction matrix  
+  - K‑Nearest Neighbors for user‑based recommendations  
+
+- **Hybrid Recommendations** (`hybrid_recommendations.py`):  
+  - Weighted blending of content and collaborative scores  
+
+- **Data Pipeline & Versioning**:  
+  - DVC for dataset/version control (`dvc.yaml`, `.dvc`, `dvc.lock`)  
+  - Pre‑processing & transformations (`data_cleaning.py`, `transform_filtered_data.py`)  
+
+- **Streamlit App** (`app.py`):  
+  - Interactive UI for “Recommend me a song”  
+  - Slider controls for weighting hybrid scores  
+
+- **Testing & CI**:  
+  - Environment checks (`test_environment.py`)  
+  - `tox.ini` for multi‑environment testing  
+
+---
+
+## 🚀 Quick Start
+
+### 1. Clone & Install
+```bash
+git clone https://github.com/abhishekramgarh13/song-recommendation-system.git
+cd song-recommendation-system
+pip install -r requirements.txt
 
 
---------
-
-<p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>
